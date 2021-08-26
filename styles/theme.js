@@ -1,8 +1,14 @@
 const defaultTheme = {
     colors: {
-        primary: "#404"
+        primary: "hsl(0, 0%, 9%)",
+        secondary: "#f09",
+        highlight: "#F263A6",
     },
-    bg: "hsl(0, 0%, 9%)"
-}
+    background: {
+        primary: "hsl(0, 0%, 100%)",
+        secondary: "#0f33ff",
+        highlight: "#D90452",
+    },
+};
 
-export default defaultTheme
+export default defaultTheme;
