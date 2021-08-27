@@ -1,64 +1,74 @@
 import styled from "styled-components";
 import Link from "next/link";
 import px2vw from "utils/px2vw";
-import { links } from "constants/constants";
-import { linksVariants, itemsVariants } from "utils/animation";
-import { motion } from "framer-motion";
 
 const NavLinks = styled.ul`
-    position: relative;
     display: flex;
-    z-index: 998;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    z-index: 999;
+    justify-content: center;
     align-items: center;
-    margin-top: ${px2vw(8)};
-    margin-bottom: ${px2vw(14)};
+    margin: ${px2vw(16)} auto ${px2vw(10)};
     font-size: 0.8rem;
     letter-spacing: 0.05rem;
     text-transform: uppercase;
+    @media (max-width: 1224px) {
+        flex-direction: column;
+        padding: 1.2rem;
+        font-size: 1rem;
+    }
     li {
         padding: 0.5rem 1.6rem;
         @media (max-width: 1224px) {
-            padding: 1rem 1.4rem;
-            margin-right: auto;
+            padding: 1rem;
         }
     }
-    @media (max-width: 1224px) {
-        margin-left: 1.4rem;
-        margin-right: auto;
-        font-size: 1rem;
-        text-transform: capitalize;
-        padding: 1rem 0;
-        flex-direction: column;
-        ::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 5%;
-            height: 91%;
-            width: 2px;
-            background: ${({ theme }) => theme.colors.primary};
-            border-radius: 8px;
-        }
+    a:hover {
+        color: ${({ theme }) => theme.colors.highlight};
     }
 `;
 
-export default function Links() {
+export default function Links({ links, handleLink }) {
     return (
-        <NavLinks as={motion.ul} variants={linksVariants}>
+        <NavLinks>
             {links.map((link, index) => (
-                <motion.li
-                    variants={itemsVariants}
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
-                    key={index}
-                >
+                <li key={index} onMouseOver={() => handleLink(link)}>
+                    <Link as={link.as} href={link.href}>
+                        <a>{link.name}</a>
+                    </Link>
+                </li>
+            ))}
+        </NavLinks>
+    );
+}
+
+const StyledSubLinks = styled.ul`
+    display: flex;
+    width: 100%;
+    grid-column: 2 / 3;
+    padding-top: ${px2vw(10)};
+    flex-direction: column;
+    font-size: 1.2rem;
+    letter-spacing: 0.05rem;
+    text-transform: uppercase;
+    margin-bottom: auto;
+    li {
+        padding: 0.5rem 0;
+    }
+    a:hover {
+        color: ${({ theme }) => theme.colors.highlight};
+    }
+`;
+
+export function SubLinks({ activeLink }) {
+    return (
+        <StyledSubLinks>
+            {activeLink.categories.map((link, index) => (
+                <li key={index}>
                     <Link href={link.href}>
                         <a>{link.name}</a>
                     </Link>
-                </motion.li>
+                </li>
             ))}
-        </NavLinks>
+        </StyledSubLinks>
     );
 }

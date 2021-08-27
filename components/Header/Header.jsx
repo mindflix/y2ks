@@ -1,43 +1,47 @@
-import React, { useState, useEffect, useRef } from "react";
-import { NavContainer, Div1, NavButtons } from "./HeaderStyles";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
+import {
+    NavContainer,
+    Div1,
+    Div2,
+    NavButtons,
+    OpacityBackground,
+} from "./HeaderStyles";
 import { IoBagHandleOutline, IoPersonOutline } from "react-icons/io5";
 import Links from "./Links";
 import Drawer from "./Drawer";
 import Logo from "./Logo";
-import { motion } from "framer-motion";
+import MegaMenu from "./MegaMenu";
+import { useMobile } from "hooks/useMobile";
+import { linksShop } from "constants/headerShop";
+import { linksBlog } from "constants/headerBlog";
+import Alert from "./Alert";
 
 export default function Header() {
-    const [isDrawer, setDrawer] = useState(true);
-    const [isOpen, setOpen] = useState(false);
-
-    const containerRef = useRef(null);
+    const mobile = useMobile();
+    const router = useRouter();
+    const [links, setLinks] = useState(linksShop);
+    const [activeLink, setActiveLink] = useState(false);
 
     useEffect(() => {
-        const handleSize = () => {
-            if (window.innerWidth <= 1224) {
-                setDrawer(true);
-                setOpen(false);
-            } else {
-                setDrawer(false);
-                setOpen(true);
-            }
-        };
-        handleSize();
-        window.addEventListener("resize", handleSize);
-        return () => window.removeEventListener("resize", handleSize);
-    }, []);
+        if (router.asPath.includes("blog")) {
+            setLinks(linksBlog);
+        } else {
+            setLinks(linksShop);
+        }
+    }, [router]);
+
+    const handleLink = (e) => {
+        setActiveLink(e);
+    };
 
     return (
-        <NavContainer
-            as={motion.nav}
-            initial={false}
-            animate={isOpen ? "open" : "closed"}
-            ref={containerRef}
-        >
+        <NavContainer>
+            <Alert />
             <Div1>
                 <Logo />
                 <NavButtons position="right">
-                    {isDrawer ? null : (
+                    {mobile ? null : (
                         <li>
                             <IoPersonOutline size={26} />
                         </li>
@@ -47,10 +51,24 @@ export default function Header() {
                     </li>
                 </NavButtons>
             </Div1>
-            {!isDrawer ? (
-                <Links />
+            {!mobile ? (
+                <>
+                    <Div2>
+                        <Links handleLink={handleLink} links={links} />
+                        {activeLink ? (
+                            <>
+                                <MegaMenu activeLink={activeLink} />
+                                <OpacityBackground
+                                    onMouseEnter={() => setActiveLink(false)}
+                                />
+                            </>
+                        ) : null}
+                    </Div2>
+                </>
             ) : (
-                <Drawer isOpen={isOpen} setOpen={setOpen} />
+                <Drawer>
+                    <Links handleLink={handleLink} links={links} />
+                </Drawer>
             )}
         </NavContainer>
     );

@@ -1,0 +1,81 @@
+export const linksShop = [
+    {
+        name: "Maquillage",
+        href: "/about",
+        img: "/images/header/maquillage.jpg",
+        categories: [
+            { name: "Collections", href: "/about" },
+            { name: "Visage", href: "/about" },
+            { name: "Yeux", href: "/about" },
+            { name: "Sourcils", href: "/about" },
+            { name: "Lèvres", href: "/about" },
+        ],
+    },
+    {
+        name: "Skincare",
+        href: "/services",
+        img: "/images/header/skincare.jpg",
+        categories: [
+            { name: "Haute Couture", href: "/about" },
+            { name: "Haute Couture", href: "/about" },
+            { name: "Haute Couture", href: "/about" },
+            { name: "Haute Couture", href: "/about" },
+            { name: "Haute Couture", href: "/about" },
+            { name: "Haute Couture", href: "/about" },
+        ],
+    },
+    {
+        name: "Vêtements",
+        img: "/images/header/clothes.jpg",
+        href: "/contact",
+        categories: [
+            { name: "Haute Couture", href: "/about" },
+            { name: "Haute Couture", href: "/about" },
+            { name: "Haute Couture", href: "/about" },
+            { name: "Haute Couture", href: "/about" },
+            { name: "Haute Couture", href: "/about" },
+            { name: "Haute Couture", href: "/about" },
+        ],
+    },
+    {
+        name: "Accessoires",
+        href: "/about",
+        img: "/images/header/accessories.jpg",
+        categories: [
+            { name: "Cheveux", href: "/about" },
+            { name: "Bijoux", href: "/about" },
+            { name: "Sacs à mains", href: "/about" },
+            { name: "Lunettes de soleil", href: "/about" },
+            { name: "Ceintures", href: "/about" },
+            { name: "Coques", href: "/about" },
+        ],
+    },
+    {
+        name: "Nouveautés",
+        href: "/services",
+        img: "/images/header/fashion.jpg",
+        categories: [
+            { name: "Nouveautés maquillage", href: "/about" },
+            { name: "Nouveautés skincare", href: "/about" },
+            { name: "Nouveautés vêtements", href: "/about" },
+            { name: "Nouveautés accessoires", href: "/about" },
+            { name: "Meilleures ventes", href: "/about" },
+        ],
+    },
+    {
+        name: "Soldes",
+        href: "/contact",
+        img: "/images/header/soldes.jpg",
+        categories: [
+            { name: "Soldes", href: "/about" },
+            { name: "Offres et promotions", href: "/about" },
+            { name: "Petits prix", href: "/about" },
+        ],
+    },
+    {
+        name: "Blog",
+        href: "/blog",
+        img: "/images/header/maquillage.jpg",
+        categories: [{ name: " Blog", href: "/about" }],
+    },
+];

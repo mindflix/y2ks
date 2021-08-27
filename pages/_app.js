@@ -20,7 +20,7 @@ function MyApp({ Component, pageProps }) {
                 />
                 <meta name="author" content="Demol Nicolas" />
                 <link
-                    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&display=swap"
+                    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&display=swap"
                     rel="stylesheet"
                 />
                 <link

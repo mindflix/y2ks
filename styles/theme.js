@@ -8,6 +8,7 @@ const defaultTheme = {
         primary: "hsl(0, 0%, 100%)",
         secondary: "#0f33ff",
         highlight: "#D90452",
+        gray: "hsl(0, 0%, 90%)",
     },
 };
 
