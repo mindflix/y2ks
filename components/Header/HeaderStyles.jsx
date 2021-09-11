@@ -9,7 +9,7 @@ export const NavContainer = styled.div`
     top: 0;
     left: 0;
     width: 100%;
-    opacity: 0.992;
+    opacity: 0.98;
     align-items: center;
     color: ${({ theme }) => theme.colors.primary};
     background: ${({ theme }) => theme.background.primary};
@@ -20,7 +20,7 @@ export const NavContainer = styled.div`
 
 export const Div1 = styled.div`
     display: flex;
-    min-width: 80%;
+    max-width: 1280px;
     justify-content: center;
     align-items: center;
     padding-top: 20px;
@@ -41,29 +41,21 @@ export const NavButtons = styled.ul`
     justify-content: center;
     align-items: center;
     height: 48px;
-    margin: ${(props) => {
-        if (props.position === "left") {
-            return "0 auto 0 0";
-        }
-        if (props.position === "right") {
-            return "0 0 0 auto";
-        }
-    }};
+    margin-left: 32px;
     li {
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 48px;
-        height: 48px;
+        min-width: 36px;
+        min-height: 36px;
         cursor: pointer;
     }
 `;
 
 export const OpacityBackground = styled.div`
     position: absolute;
-    display: flex;
     width: 100%;
-    opacity: 0.75;
+    opacity: 0.6;
     height: 100vh;
     background: ${({ theme }) => theme.colors.primary};
 `;

@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 const Copyright = styled.div`
-    position: absolute;
     top: 0;
     width: 100%;
     height: 10px;
@@ -9,8 +8,8 @@ const Copyright = styled.div`
     text-align: right;
     padding-right: 10px;
     font-size: 8px;
-    color: ${({ theme }) => theme.background.primary};
-    background: ${({ theme }) => theme.colors.primary};
+    color: ${({ theme }) => theme.colors.primary};
+    background: ${({ theme }) => theme.colors.secondary};
     @media (max-width: 1224px) {
         font-size: 6px;
         line-height: 10px;
@@ -18,5 +17,5 @@ const Copyright = styled.div`
 `;
 
 export default function Alert() {
-    return <Copyright>version 0.1</Copyright>;
+    return <Copyright>v0.1</Copyright>;
 }

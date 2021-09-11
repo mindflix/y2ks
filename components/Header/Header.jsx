@@ -16,6 +16,7 @@ import { useMobile } from "hooks/useMobile";
 import { linksShop } from "constants/headerShop";
 import { linksBlog } from "constants/headerBlog";
 import Alert from "./Alert";
+import Search from "../Search";
 
 export default function Header() {
     const mobile = useMobile();
@@ -40,31 +41,30 @@ export default function Header() {
             <Alert />
             <Div1>
                 <Logo />
+                <Search placeholder="Rechercher un produit, une marque..." />
                 <NavButtons position="right">
                     {mobile ? null : (
                         <li>
-                            <IoPersonOutline size={26} />
+                            <IoPersonOutline size={24} />
                         </li>
                     )}
                     <li>
-                        <IoBagHandleOutline size={28} />
+                        <IoBagHandleOutline size={24} />
                     </li>
                 </NavButtons>
             </Div1>
             {!mobile ? (
-                <>
-                    <Div2>
-                        <Links handleLink={handleLink} links={links} />
-                        {activeLink ? (
-                            <>
-                                <MegaMenu activeLink={activeLink} />
-                                <OpacityBackground
-                                    onMouseEnter={() => setActiveLink(false)}
-                                />
-                            </>
-                        ) : null}
-                    </Div2>
-                </>
+                <Div2 onMouseLeave={() => handleLink(false)}>
+                    <Links handleLink={handleLink} links={links} />
+                    {activeLink ? (
+                        <>
+                            <MegaMenu activeLink={activeLink} />
+                            <OpacityBackground
+                                onMouseEnter={() => handleLink(false)}
+                            />
+                        </>
+                    ) : null}
+                </Div2>
             ) : (
                 <Drawer>
                     <Links handleLink={handleLink} links={links} />

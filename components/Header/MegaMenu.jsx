@@ -11,8 +11,6 @@ const StyledMegaMenu = styled.div`
     width: 100%;
     height: ${px2vw(350)};
     background: ${({ theme }) => theme.background.primary};
-    border-top: 1px solid ${({ theme }) => theme.colors.primary};
-    border-bottom: 1px solid ${({ theme }) => theme.colors.primary};
 `;
 
 const Div1 = styled.div`

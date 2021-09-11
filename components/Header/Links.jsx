@@ -7,8 +7,9 @@ const NavLinks = styled.ul`
     z-index: 999;
     justify-content: center;
     align-items: center;
-    margin: ${px2vw(16)} auto ${px2vw(10)};
+    margin: ${px2vw(8)} 0 ${px2vw(6)};
     font-size: 0.8rem;
+    font-weight: 500;
     letter-spacing: 0.05rem;
     text-transform: uppercase;
     @media (max-width: 1224px) {
@@ -23,7 +24,7 @@ const NavLinks = styled.ul`
         }
     }
     a:hover {
-        color: ${({ theme }) => theme.colors.highlight};
+        font-weight: bold;
     }
 `;
 

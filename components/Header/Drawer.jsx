@@ -2,9 +2,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import Hamburger from "hamburger-react";
 import { IoPersonOutline } from "react-icons/io5";
-import Links from "./Links";
 import Button from "components/Button";
-import { links } from "constants/headerShop";
 
 const StyledDrawer = styled.div`
     position: absolute;
@@ -23,7 +21,7 @@ export default function Drawer({ children }) {
 
     return (
         <StyledDrawer isOpen={isOpen}>
-            <Hamburger size={26} rounded toggle={setOpen} toggled={isOpen} />
+            <Hamburger size={24} rounded toggle={setOpen} toggled={isOpen} />
             {isOpen ? (
                 <>
                     {children}
