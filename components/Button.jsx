@@ -1,46 +1,48 @@
 import styled from "styled-components";
 
 const StyledButton = styled.button`
-    width: 130px;
-    height: 40px;
+    min-width: 130px;
+    padding: 0 18px;
+    height: 48px;
+    margin: auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 2px solid #000;
-    font-weight: 500;
+    border: 2px solid ${({ theme }) => theme.colors.primary};
+    border-radius: 4px;
+    font-weight: 700;
+    text-transform: uppercase;
     background: transparent;
     cursor: pointer;
     transition: all 0.3s ease;
     position: relative;
-    background: #000;
+    background: ${({ theme }) => theme.colors.primary};
     color: #fff;
     z-index: 1;
     &:after {
         position: absolute;
         content: "";
-        width: 0;
-        height: 100%;
-        top: 0;
-        right: 0;
+        width: 100%;
+        height: 0;
+        bottom: 0;
         z-index: -1;
         background: #fff;
         transition: all 0.3s ease;
     }
     &:hover {
-        color: #000;
+        color: ${({ theme }) => theme.colors.primary};
     }
     &:hover:after {
-        left: 0;
-        width: 100%;
+        height: 100%;
     }
     &:active {
-        top: 2px;
+        top: 1px;
     }
 `;
 
 const StyledIcon = styled.div`
     display: flex;
-    padding-right: 6px;
+    padding-right: 8px;
 `;
 
 function Button(props) {

@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
+import { IoSearchOutline } from "react-icons/io5";
+import Link from "next/link";
 import {
     NavContainer,
     Div1,
@@ -16,7 +18,7 @@ import { useMobile } from "hooks/useMobile";
 import { linksShop } from "constants/headerShop";
 import { linksBlog } from "constants/headerBlog";
 import Alert from "./Alert";
-import Search from "../Search";
+import TextField from "components/TextField";
 
 export default function Header() {
     const mobile = useMobile();
@@ -41,12 +43,21 @@ export default function Header() {
             <Alert />
             <Div1>
                 <Logo />
-                <Search placeholder="Rechercher un produit, une marque..." />
-                <NavButtons position="right">
+                {!mobile ? (
+                    <TextField
+                        size="small"
+                        style={{ width: 500 }}
+                        icon={<IoSearchOutline size={24} />}
+                        placeholder="Rechercher un produit, une marque..."
+                    />
+                ) : null}
+                <NavButtons>
                     {mobile ? null : (
-                        <li>
-                            <IoPersonOutline size={24} />
-                        </li>
+                        <Link href="/login">
+                            <li>
+                                <IoPersonOutline size={24} />
+                            </li>
+                        </Link>
                     )}
                     <li>
                         <IoBagHandleOutline size={24} />

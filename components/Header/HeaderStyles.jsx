@@ -11,6 +11,7 @@ export const NavContainer = styled.div`
     width: 100%;
     opacity: 0.98;
     align-items: center;
+    border-bottom: 2px solid ${({ theme }) => theme.background.gray};
     color: ${({ theme }) => theme.colors.primary};
     background: ${({ theme }) => theme.background.primary};
     @media (max-width: 1224px) {
@@ -41,14 +42,17 @@ export const NavButtons = styled.ul`
     justify-content: center;
     align-items: center;
     height: 48px;
-    margin-left: 32px;
+    margin: 0 36px;
     li {
         display: flex;
         justify-content: center;
         align-items: center;
-        min-width: 36px;
-        min-height: 36px;
+        min-width: 48px;
+        min-height: 48px;
         cursor: pointer;
+    }
+    @media (max-width: 1224px) {
+        margin: 0 0 0 auto;
     }
 `;
 

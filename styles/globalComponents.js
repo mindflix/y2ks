@@ -8,28 +8,24 @@ export const Section = styled.div`
 `;
 
 export const Container = styled.div`
-    display: flex;
-    position: relative;
-    flex-wrap: wrap;
-    margin: 0 ${px2vw(250)} 0;
-    max-width: 100%;
+    margin: auto;
+    height: auto;
+    max-width: ${(props) => props.theme.breakpoints[props.maxWidth]}px;
     max-height: 100%;
-
-    @media (min-width: 1024px) {
-        flex-wrap: nowrap;
-    }
 `;
 
 export const Paper = styled.div`
-    padding: ${px2vw(24)};
-    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 48px;
+    border-radius: 12px;
+    background: ${({ theme }) => theme.background.primary};
+    box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%),
+        0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
 `;
 
-export const Wrap = styled.div`
-    padding: 1.5rem;
-    max-width: 100%;
-
-    @media (max-width: 1024px) {
-        padding: 0.5rem;
-    }
+export const Box = styled.div`
+    width: 100%;
+    margin: 0.2rem;
 `;
