@@ -32,6 +32,7 @@ export const Div1 = styled.div`
 `;
 
 export const Div2 = styled.div`
+    z-index: 999;
     width: 100%;
     height: 100%;
 `;
@@ -39,10 +40,9 @@ export const Div2 = styled.div`
 export const NavButtons = styled.ul`
     display: flex;
     z-index: 999;
-    justify-content: center;
     align-items: center;
     height: 48px;
-    margin: 0 36px;
+    margin: 0 12px;
     li {
         display: flex;
         justify-content: center;
@@ -52,14 +52,15 @@ export const NavButtons = styled.ul`
         cursor: pointer;
     }
     @media (max-width: 1224px) {
-        margin: 0 0 0 auto;
+        margin: 0;
     }
 `;
 
 export const OpacityBackground = styled.div`
     position: absolute;
+    top: 200px;
     width: 100%;
     opacity: 0.6;
     height: 100vh;
-    background: ${({ theme }) => theme.colors.primary};
+    background-color: black;
 `;

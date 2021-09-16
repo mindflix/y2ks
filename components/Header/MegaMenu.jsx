@@ -30,8 +30,8 @@ export default function MegaMenu({ activeLink }) {
                 <Image
                     src={activeLink.img}
                     layout="fill"
-                    quality={40}
-                    priority={true}
+                    quality={25}
+                    unoptimized
                     objectFit="cover"
                     objectPosition="center"
                 />

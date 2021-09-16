@@ -4,13 +4,14 @@ import Link from "next/link";
 const NavLogo = styled.div`
     z-index: 999;
     letter-spacing: 0.4rem;
-    margin: 0 36px;
+    margin: 0 12px;
     cursor: pointer;
     transition: color 0.25s ease-out;
     font-size: 2.8rem;
     font-weight: 600;
+    color: ${({ theme }) => theme.colors.primary};
     @media (max-width: 1224px) {
-        margin: 0 54px;
+        margin: 0 auto;
         font-size: 2rem;
     }
 `;

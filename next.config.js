@@ -1,3 +1,12 @@
 module.exports = {
-  reactStrictMode: true,
-}
+    reactStrictMode: true,
+    env: {
+        REACT_APP_FIREBASE_API_KEY: "AIzaSyCLgU_HEfa2FOiFOU6WiiPJG6gjs6HMI6M",
+        REACT_APP_FIREBASE_DOMAIN: "y2ks-65e8c.firebaseapp.com",
+        REACT_APP_FIREBASE_PROJECT_ID: "y2ks-65e8c",
+        REACT_APP_FIREBASE_STORAGE_BUCKET: "y2ks-65e8c.appspot.com",
+        REACT_APP_FIREBASE_MESSAGING_SENDER_ID: "117262527915",
+        REACT_APP_FIREBASE_APP_ID: "1:117262527915:web:97fa15fd8bc11a8272b6ee",
+        REACT_APP_FIREBASE_MESUREMENT_ID: "G-3D5N2BQ2H3",
+    },
+};

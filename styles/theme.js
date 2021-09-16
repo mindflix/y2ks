@@ -1,6 +1,6 @@
 const defaultTheme = {
     colors: {
-        primary: "hsl(0, 0%, 9%)",
+        primary: "#353140",
         secondary: "#fbe",
         highlight: "#F263A6",
         gray: "hsl(0, 0%, 84%)",

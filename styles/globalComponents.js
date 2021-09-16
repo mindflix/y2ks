@@ -8,8 +8,8 @@ export const Section = styled.div`
 `;
 
 export const Container = styled.div`
+    position: relative;
     margin: auto;
-    height: auto;
     max-width: ${(props) => props.theme.breakpoints[props.maxWidth]}px;
     max-height: 100%;
 `;
@@ -18,7 +18,7 @@ export const Paper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 48px;
+    padding: ${px2vw(48)};
     border-radius: 12px;
     background: ${({ theme }) => theme.background.primary};
     box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%),

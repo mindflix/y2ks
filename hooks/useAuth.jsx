@@ -1,6 +1,11 @@
 import React, { useState, useEffect, useContext, createContext } from "react";
-import firebase from "firebase/app";
-import "firebase/auth";
+import * as firebase from "firebase/app";
+import {
+    getAuth,
+    onAuthStateChanged,
+    signInWithEmailAndPassword,
+    signOut,
+} from "firebase/auth";
 
 firebase.initializeApp({
     apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -21,57 +26,26 @@ export const useAuth = () => {
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [isAuthenticating, setIsAuthenticating] = useState(true);
+    const auth = getAuth();
 
     const signin = (email, password) => {
-        return firebase
-            .auth()
-            .signInWithEmailAndPassword(email, password)
-            .then((response) => {
+        return signInWithEmailAndPassword(auth, email, password).then(
+            (response) => {
                 setUser(response.user);
                 return response.user;
-            });
+            }
+        );
     };
-    const signup = (email, password) => {
-        return firebase
-            .auth()
-            .createUserWithEmailAndPassword(email, password)
-            .then((response) => {
-                setUser(response.user);
-                return response.user;
-            });
-    };
+
     const signout = () => {
-        return firebase
-            .auth()
-            .signOut()
-            .then(() => {
-                setUser(false);
-            });
-    };
-    const sendPasswordResetEmail = (email) => {
-        return firebase
-            .auth()
-            .sendPasswordResetEmail(email)
-            .then(() => {
-                return true;
-            });
-    };
-    const confirmPasswordReset = (code, password) => {
-        return firebase
-            .auth()
-            .confirmPasswordReset(code, password)
-            .then(() => {
-                return true;
-            });
+        return signOut(auth);
     };
 
     useEffect(() => {
-        const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
             setUser(user);
             setIsAuthenticating(false);
         });
-
-        // Cleanup subscription on umount
         return () => unsubscribe();
     }, []);
 
@@ -79,10 +53,7 @@ export const AuthProvider = ({ children }) => {
         user,
         isAuthenticating,
         signin,
-        signup,
         signout,
-        sendPasswordResetEmail,
-        confirmPasswordReset,
     };
 
     return (

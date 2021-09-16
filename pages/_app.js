@@ -1,3 +1,4 @@
+import { AuthProvider } from "hooks/useAuth";
 import Layout from "layouts/Layout";
 import Head from "next/head";
 import { ThemeProvider } from "styled-components";
@@ -30,11 +31,13 @@ function MyApp({ Component, pageProps }) {
                 <link rel="icon" type="image/png" href="images/logoY2KS_.png" />
             </Head>
             <GlobalStyle />
-            <ThemeProvider theme={theme}>
-                <Layout>
-                    <Component {...pageProps} />
-                </Layout>
-            </ThemeProvider>
+            <AuthProvider>
+                <ThemeProvider theme={theme}>
+                    <Layout>
+                        <Component {...pageProps} />
+                    </Layout>
+                </ThemeProvider>
+            </AuthProvider>
         </>
     );
 }

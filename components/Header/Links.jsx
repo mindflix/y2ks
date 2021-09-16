@@ -28,13 +28,13 @@ const NavLinks = styled.ul`
     }
 `;
 
-export default function Links({ links, handleLink }) {
+export default function Links({ links, handleLink, isHovered }) {
     return (
         <NavLinks>
             {links.map((link, index) => (
                 <li key={index} onMouseOver={() => handleLink(link)}>
                     <Link as={link.as} href={link.href}>
-                        <a>{link.name}</a>
+                        <a onMouseEnter={() => isHovered(true)}>{link.name}</a>
                     </Link>
                 </li>
             ))}
