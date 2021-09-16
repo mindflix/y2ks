@@ -70,7 +70,6 @@ export default function Header() {
                 <Logo />
                 {!mobile ? (
                     <TextField
-                        size="small"
                         style={{ width: 500 }}
                         icon={<IoSearchOutline size={24} />}
                         label="Rechercher un produit, une marque..."

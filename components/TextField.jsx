@@ -13,7 +13,6 @@ const StyledTextFieldBase = styled.div`
     position: relative;
     display: flex;
     width: 100%;
-    height: 100%;
     cursor: text;
     box-sizing: border-box;
 `;
@@ -22,12 +21,15 @@ const StyledLabel = styled.label`
     position: absolute;
     top: 0;
     left: 0;
-    font-size: 1em;
+    & > p {
+        font-size: 1em;
+    }
+    letter-spacing: 0.02rem;
     z-index: 1;
     transform: ${(props) =>
         props.active
-            ? "translate(25px, 1.5px) scale(0.75)"
-            : "translate(20px, 25px) scale(1)"};
+            ? "translate(26px, 1px) scale(0.75)"
+            : "translate(20px, 27px) scale(1)"};
     transform-origin: top left;
     transition: all 0.3s ease;
     pointer-events: none;
@@ -36,6 +38,7 @@ const StyledLabel = styled.label`
 const StyledInputBase = styled.input`
     display: flex;
     width: 100%;
+    font-size: 1em;
     padding: 18.5px 20px;
     letter-spacing: 0.02rem;
     box-sizing: content-box;
@@ -58,15 +61,16 @@ const StyledFieldSet = styled.fieldset`
     overflow: hidden;
     pointer-events: none;
     border-radius: 4px;
-    border: 2px solid ${({ theme }) => theme.colors.primary};
+    border: 1px solid ${({ theme }) => theme.colors.primary};
 `;
 
 const StyledLegend = styled.legend`
     width: auto;
+    height: 11px;
     display: block;
     padding: 0;
     z-index: 10;
-    font-size: 0.65em;
+    font-size: 0.8em;
     max-width: ${(props) => (props.active ? "1000px" : "0.01px")};
     text-align: left;
     visibility: hidden;
@@ -116,7 +120,6 @@ function TextField(props, ref) {
                 onChange={handleChange}
                 onFocus={handleChange}
                 onBlur={handleChange}
-                size={props.size}
             >
                 <StyledInputBase
                     ref={inputRef}
