@@ -14,7 +14,7 @@ export const NavContainer = styled.div`
     border-bottom: 2px solid ${({ theme }) => theme.background.gray};
     color: ${({ theme }) => theme.colors.primary};
     background: ${({ theme }) => theme.background.primary};
-    @media (max-width: 1224px) {
+    @media (max-width: ${(props) => props.theme.breakpoints.md}px) {
         padding: 4px 16px;
     }
 `;
@@ -25,7 +25,7 @@ export const Div1 = styled.div`
     justify-content: center;
     align-items: center;
     padding-top: 20px;
-    @media (max-width: 1224px) {
+    @media (max-width: ${(props) => props.theme.breakpoints.md}px) {
         padding-top: 10px;
         width: 100%;
     }
@@ -51,7 +51,7 @@ export const NavButtons = styled.ul`
         min-height: 48px;
         cursor: pointer;
     }
-    @media (max-width: 1224px) {
+    @media (max-width: ${(props) => props.theme.breakpoints.md}px) {
         margin: 0;
     }
 `;

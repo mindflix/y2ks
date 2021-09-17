@@ -11,6 +11,9 @@ const StyledMegaMenu = styled.div`
     width: 100%;
     height: ${px2vw(350)};
     background: ${({ theme }) => theme.background.primary};
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    overflow: hidden;
 `;
 
 const Div1 = styled.div`

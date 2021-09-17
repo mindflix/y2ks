@@ -1,10 +1,7 @@
 import styled from "styled-components";
 
 const StyledDrawer = styled.div`
-    position: relative;
     z-index: 997;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100vh;
     color: ${({ theme }) => theme.colors.primary};

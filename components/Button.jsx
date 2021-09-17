@@ -1,22 +1,22 @@
 import styled from "styled-components";
 
 const StyledButton = styled.button`
-    min-width: 130px;
-    padding: 0 18px;
-    height: 48px;
-    margin: auto;
+    position: relative;
     display: flex;
+    min-width: 130px;
+    padding: 0 24px;
+    letter-spacing: 0.1em;
+    margin: ${(props) => (props.center ? "auto" : "")};
+    height: 48px;
     justify-content: center;
     align-items: center;
     border: 2px solid ${({ theme }) => theme.colors.primary};
     border-radius: 4px;
     font-weight: 700;
     text-transform: uppercase;
-    background: transparent;
+    background: ${({ theme }) => theme.colors.primary};
     cursor: pointer;
     transition: all 0.3s ease;
-    position: relative;
-    background: ${({ theme }) => theme.colors.primary};
     color: #fff;
     z-index: 1;
     &:after {
@@ -25,8 +25,9 @@ const StyledButton = styled.button`
         width: 100%;
         height: 0;
         bottom: 0;
-        z-index: -1;
-        background: #fff;
+        z-index: -2;
+        background-color: ${({ theme }) => theme.background.light};
+        backdrop-filter: blur(15px);
         transition: all 0.3s ease;
     }
     &:hover {

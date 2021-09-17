@@ -12,7 +12,7 @@ const Copyright = styled.div`
     font-size: 8px;
     color: ${({ theme }) => theme.colors.primary};
     background: ${({ theme }) => theme.colors.primary};
-    @media (max-width: 1224px) {
+    @media (max-width: ${(props) => props.theme.breakpoints.md}px) {
         font-size: 6px;
         line-height: 10px;
     }

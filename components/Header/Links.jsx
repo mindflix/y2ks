@@ -12,14 +12,14 @@ const NavLinks = styled.ul`
     font-weight: 500;
     letter-spacing: 0.05rem;
     text-transform: uppercase;
-    @media (max-width: 1224px) {
+    @media (max-width: ${(props) => props.theme.breakpoints.md}px) {
         flex-direction: column;
         padding: 1.2rem;
         font-size: 1rem;
     }
     li {
         padding: 0.5rem 1.6rem;
-        @media (max-width: 1224px) {
+        @media (max-width: ${(props) => props.theme.breakpoints.md}px) {
             padding: 1rem;
         }
     }

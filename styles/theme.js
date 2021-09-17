@@ -1,7 +1,7 @@
 const defaultTheme = {
     colors: {
         primary: "#353140",
-        secondary: "#fbe",
+        secondary: "#def",
         highlight: "#F263A6",
         gray: "hsl(0, 0%, 84%)",
     },
@@ -13,7 +13,7 @@ const defaultTheme = {
         light: "hsl(0, 0%, 98%)",
     },
     breakpoints: {
-        xs: 0,
+        xs: 460,
         sm: 600,
         md: 960,
         lg: 1280,
@@ -21,13 +21,12 @@ const defaultTheme = {
     },
     text: {
         variant: {
-            h1: 72,
-            h2: 48,
-            h3: 36,
-            h4: 24,
+            h1: 42,
+            h2: 24,
+            h3: 22,
+            h4: 20,
             h5: 18,
-            h6: 16,
-            p: 14,
+            p: 16,
         },
     },
 };

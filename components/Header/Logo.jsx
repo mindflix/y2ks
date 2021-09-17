@@ -10,7 +10,7 @@ const NavLogo = styled.div`
     font-size: 2.8rem;
     font-weight: 600;
     color: ${({ theme }) => theme.colors.primary};
-    @media (max-width: 1224px) {
+    @media (max-width: ${(props) => props.theme.breakpoints.md}px) {
         margin: 0 auto;
         font-size: 2rem;
     }

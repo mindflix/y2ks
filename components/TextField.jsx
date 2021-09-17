@@ -20,16 +20,18 @@ const StyledTextFieldBase = styled.div`
 const StyledLabel = styled.label`
     position: absolute;
     top: 0;
+    line-height: 1.5px;
     left: 0;
     & > p {
+        margin: 0;
         font-size: 1em;
     }
     letter-spacing: 0.02rem;
     z-index: 1;
     transform: ${(props) =>
         props.active
-            ? "translate(26px, 1px) scale(0.75)"
-            : "translate(20px, 27px) scale(1)"};
+            ? "translate(26px, -1px) scale(0.75)"
+            : "translate(20px, 24px) scale(1)"};
     transform-origin: top left;
     transition: all 0.3s ease;
     pointer-events: none;

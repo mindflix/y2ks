@@ -8,11 +8,13 @@ function Account() {
     const { user, signout } = useAuth();
 
     return (
-        <Container maxWidth="lg">
+        <Container maxWidth="sm">
             <Text variant="h2" center>
                 Bienvenue à {user.email}
             </Text>
-            <Button onClick={signout}>Se Déconnecter</Button>
+            <Button center onClick={signout}>
+                Se Déconnecter
+            </Button>
         </Container>
     );
 }

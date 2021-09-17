@@ -1,9 +1,13 @@
 import React from "react";
-import styled, { withTheme } from "styled-components";
+import styled from "styled-components";
 
 const StyledText = styled.p`
-    margin: 0;
-    color: ${({theme}) => theme.colors.primary};
+    font-weight: ${(props) => (props.strong ? "bold" : "")};
+    line-height: ${(props) =>
+        props.variant === "p" || !props.variant ? "26px" : ""};
+    margin: 8px 0;
+    z-index: 10;
+    color: ${({ theme }) => theme.colors.primary};
     font-size: ${(props) =>
         props.theme.text.variant[props.variant] ||
         props.theme.text.variant.p}px;
@@ -13,6 +17,7 @@ const StyledText = styled.p`
 export default function Text(props) {
     return (
         <StyledText
+            {...props}
             as={props.variant || "p"}
             center={props.center}
             variant={props.variant}

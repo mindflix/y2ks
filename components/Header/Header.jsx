@@ -12,6 +12,7 @@ import {
 } from "./HeaderStyles";
 import {
     IoBagHandle,
+    IoHomeOutline,
     IoBagHandleOutline,
     IoPerson,
     IoPersonOutline,
@@ -34,6 +35,7 @@ export default function Header() {
     const [links, setLinks] = useState(linksShop);
     const [activeLink, setActiveLink] = useState(null);
     const [isOpen, setOpen] = useState(false);
+    const [isHovered, setHovered] = useState(false);
 
     useEffect(() => {
         if (router.asPath.includes("blog")) {
@@ -47,11 +49,21 @@ export default function Header() {
         setActiveLink(e);
     };
 
-    const handleOpen = (e) => {
-        if (activeLink) {
-            setOpen(e);
-        }
+    const handleHovered = (e) => {
+        e ? setHovered(true) : setHovered(false);
     };
+
+    useEffect(() => {
+        const handleOpen = (e) => {
+            if (e) {
+                setOpen(true);
+            }
+        };
+        if (activeLink) {
+            const opening = setTimeout(() => handleOpen(isHovered), 400);
+            return () => clearInterval(opening);
+        }
+    }, [isHovered]);
 
     return (
         <NavContainer>
@@ -96,9 +108,14 @@ export default function Header() {
             </Div1>
             {!mobile ? (
                 <>
-                    <Div2 onMouseLeave={() => handleOpen(false)}>
+                    <Div2
+                        onMouseLeave={() => {
+                            handleHovered(false);
+                            setOpen(false);
+                        }}
+                    >
                         <Links
-                            isHovered={handleOpen}
+                            isHovered={handleHovered}
                             handleLink={handleLink}
                             links={links}
                         />
@@ -108,12 +125,31 @@ export default function Header() {
                 </>
             ) : (
                 <Drawer isOpen={isOpen}>
-                    <Links links={links} />
-                    <Link href="/account">
-                        <Button icon={<IoPersonOutline size={24} />}>
-                            Votre compte
-                        </Button>
-                    </Link>
+                    <div
+                        style={{
+                            display: "flex",
+                            justifyContent: "center",
+                            paddingTop: "20px",
+                        }}
+                    >
+                        <Link href="/">
+                            <Button
+                                onClick={() => setOpen(false)}
+                                icon={<IoHomeOutline size={24} />}
+                            >
+                                Accueil
+                            </Button>
+                        </Link>
+                        <Link href="/account">
+                            <Button
+                                onClick={() => setOpen(false)}
+                                icon={<IoPersonOutline size={24} />}
+                            >
+                                Votre compte
+                            </Button>
+                        </Link>
+                    </div>
+                    <Links links={links} onClick={() => setOpen(false)} />
                 </Drawer>
             )}
         </NavContainer>
